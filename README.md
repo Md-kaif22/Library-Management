@@ -22,6 +22,7 @@ Make sure the following are installed on your system:
    
 # Set up a virtual environment (optional but recommended):
 python3 -m venv env
+
 source env/bin/activate  # On Windows: env\Scripts\activate
 
 # Install the dependencies:
