@@ -42,6 +42,7 @@ npm install
 
 ### Run the Angular development server:
 ng serve
+
 The frontend will be running on http://127.0.0.1:4200.
 
 # LINTING
