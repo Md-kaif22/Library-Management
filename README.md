@@ -30,6 +30,7 @@ pip install -r requirements.txt
 
 # Run the Django server:
 python manage.py runserver
+
 The backend will be running on http://127.0.0.1:8000.
 
 # Frontend Setup (Angular):
