@@ -1,0 +1,45 @@
+<div class="home-page">
+    <h1>Book Management</h1>
+
+    <div class="book-list-container">
+        <h2>Create a New Book List</h2>
+        <form (ngSubmit)="onCreateList()">
+            <label for="listName">List Name</label>
+            <input id="listName" [(ngModel)]="listName" name="listName" required />
+            <button type="submit">Create List</button>
+        </form>
+    </div>
+
+    <div *ngIf="bookLists.length > 0; else noLists" class="book-list">
+        <h3>My Book Lists</h3>
+        <ul>
+            <li *ngFor="let list of bookLists">
+                <div class="list-header">
+                    <span>{{ list.name }}</span>
+                    <div class="list-actions">
+                        <button class="delete" (click)="onDeleteList(list.id)">Delete List</button>
+                        <button class="add" (click)="onAddBookToList(list.id)">Add Book</button>
+                    </div>
+                </div>
+
+                <ul *ngIf="list.books.length > 0; else noBooks">
+                    <li *ngFor="let book of list.books">
+                        <div class="book">
+                            <h3>{{ book.title }}</h3>
+                            <p>Year: {{ book.year }}</p>
+                            <p>Author: {{ book.author_name }}</p>
+                        </div>
+                        <button class="delete" (click)="onRemoveBookFromList(list.id, book.id)">Remove Book</button>
+                    </li>
+                </ul>
+                <ng-template #noBooks>
+                    <p class="no-books">No books in this list.</p>
+                </ng-template>
+            </li>
+        </ul>
+    </div>
+
+    <ng-template #noLists>
+        <p class="no-books">No book lists available.</p>
+    </ng-template>
+</div>

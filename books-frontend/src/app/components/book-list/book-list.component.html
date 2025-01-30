@@ -1,0 +1,35 @@
+<!-- <div *ngIf="books.length > 0; else noBooks">
+    <div *ngFor="let book of books" class="book">
+        <h3>{{ book.title }}</h3>
+        <p>Author: {{ book.author_name }}</p>
+        <p>Year: {{ book.year }}</p>
+    </div>
+</div>
+
+<ng-template #noBooks>
+    <p>No books available.</p>
+</ng-template> -->
+
+<nav class="navbar">
+    <div class="logo">
+        <h2>Book Library</h2>
+    </div>
+    <div class="nav-links">
+        <button  (click)="navigateToManageList()">Manage List</button>
+    </div>
+</nav>
+<div class="home-page">
+    <!-- <h1>Book Library</h1> -->
+   
+    <div *ngIf="books.length > 0; else noBooks" class="book-list">
+        <div *ngFor="let book of books" class="book">
+            <h3>{{ book.title }}</h3>
+            <p>Author: {{ book.author_name }}</p>
+            <p>Year: {{ book.year }}</p>
+        </div>
+    </div>
+
+    <ng-template #noBooks>
+        <p class="no-books">No books available.</p>
+    </ng-template>
+</div>
